@@ -6,21 +6,21 @@
              xmlns:converter="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna"  
              xmlns:local="clr-namespace:N2k3Dash.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="1000"
              >
 
     <UserControl.Resources>
         <ControlTemplate x:Key="PBTach" TargetType="{x:Type ProgressBar}">
             <Grid>
                 <Path x:Name="PART_Track" 
-                        Data="M36.271832,124.77828 L36.271832,104.77828 C117.33263,94.170672 186.19315,84.804819 267.80283,75.997796 479.99854,53.098401 597.36027,46.170672 776.77183,44.778284 L776.77183,79.778284 C599.35623,79.341404 465.79534,82.57944 298.96471,98.073111 219.12644,105.48775 124.31848,114.8536 36.271832,124.77828 z"                  
+                        Data="M36.271832,124.77828 L36.271832,104.77828 C117.33263,94.170672 186.19315,84.804819 267.80283,75.997796 479.99854,53.098401 597.54179,50.762687 776.95335,49.370299 L776.77183,79.778284 C599.35623,79.341404 465.79534,82.57944 298.96471,98.073111 219.12644,105.48775 124.31848,114.8536 36.271832,124.77828 z" 
                         HorizontalAlignment="Left" 
-                        Height="206" 
-                        Margin="36.275,40.932,0,0" 
+                        Height="240" 
+                        Margin="35.275,40.932,0,0" 
                         Stretch="Fill" 
                         Stroke="Yellow" 
                         VerticalAlignment="Top" 
-                        Width="743">
+                        Width="919.225">
                     <Path.Fill>
                         <MultiBinding>
                             <MultiBinding.Converter>
@@ -39,29 +39,28 @@
         </ControlTemplate>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid x:Name="LayoutRoot"  Background="Black" Width="782">
-            <Label x:Name="RPML"
+    <Grid x:Name="LayoutRoot"  Background="Black">
+        <Label x:Name="RPML"
                Content="RPM" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top"
                Foreground="Yellow" 
-               Height="59" 
-               Width="98"
-               Margin="500,207,0,0" 
+               Height="68" 
+               Width="112"
+               Margin="611,208,0,0" 
                FontSize="36" 
                FontFamily="Russo One" />
-            <Label x:Name="RPM" 
+        <Label x:Name="RPM" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Foreground="{Binding RPMColor}" 
-               Height="64"
-               Width="162" 
-               Margin="500,247,0,0" 
+               Height="73"
+               Width="186" 
+               Margin="611,254,0,0" 
                FontSize="55" 
                FontFamily="Russo One" 
                Content="{Binding RPM}"/>
-            <Label x:Name="Status" 
+        <Label x:Name="Status" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top"
                Foreground="White"
@@ -72,217 +71,214 @@
                HorizontalContentAlignment="Left" 
                FontFamily="Russo One" 
                Content="{Binding Status}"/>
-            <Label x:Name="OILT" Content="OILT"
+        <Label x:Name="OILT" Content="OILT"
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
-               Height="59" 
-               Width="98" 
-               Margin="316,207,0,0" 
+               Height="68" 
+               Width="111" 
+               Margin="401,208,0,0" 
                FontSize="36" 
                FontFamily="Russo One" />
-            <Label x:Name="WATT" 
+        <Label x:Name="WATT" 
                Content="WATT" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Foreground="LightBlue" 
-               Height="59" 
-               Width="116"
-               Margin="144,209,0,0"
+               Height="68" 
+               Width="132"
+               Margin="204,210,0,0"
                FontSize="36" 
                FontFamily="Russo One" />
-            <Label x:Name="OilTemp" 
+        <Label x:Name="OilTemp" 
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Foreground="White"
-               Height="64" 
-               Width="149" 
-               Margin="316,247,0,0"
+               Height="73" 
+               Width="170" 
+               Margin="401,254,0,0"
                FontSize="55"
                FontFamily="Russo One"
                Content="{Binding OilTemp}"/>
-            <Label x:Name="WaterTemp" 
+        <Label x:Name="WaterTemp" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Foreground="{Binding WaterTempColor}"
-               Height="64"
-               Width="149"
-               Margin="144,247,0,0" 
+               Height="73"
+               Width="170"
+               Margin="204,254,0,0" 
                FontSize="55"
                FontFamily="Russo One"
                Content="{Binding WaterTemp}"/>
-            <Label x:Name="OILP"
+        <Label x:Name="OILP"
                Content="OILP"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Foreground="LightBlue"
-               Height="35" Width="85"
-               Margin="316,311,0,0"
+               Height="41" Width="97"
+               Margin="401,327,0,0"
                FontSize="24"
                FontFamily="Russo One" />
-            <Label x:Name="VOLTS"
+        <Label x:Name="VOLTS"
                Content="VOLTS"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Foreground="Yellow" 
-               Height="35"
-               Width="98" 
-               Margin="500,306,0,0" 
+               Height="41"
+               Width="112" 
+               Margin="611,321,0,0" 
                FontSize="24" 
                FontFamily="Russo One" />
-            <Label x:Name="OilPress"
+        <Label x:Name="OilPress"
                HorizontalAlignment="Left"
                VerticalAlignment="Top" 
                Foreground="{Binding OilPressureColor}"
-               Height="59"
-               Width="85"
-               Margin="316,346,0,0" 
+               Height="67"
+               Width="97"
+               Margin="401,368,0,0" 
                FontSize="36"
                FontFamily="Russo One"
                Content="{Binding OilPressure}"/>
-            <Label x:Name="Voltage"
+        <Label x:Name="Voltage"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Foreground="White"
-               Height="59" 
-               Width="85" 
-               Margin="500,341,0,0"
+               Height="67" 
+               Width="97" 
+               Margin="611,362,0,0"
                FontSize="36"
                FontFamily="Russo One"
                Content="{Binding Voltage}"/>
-            <Label x:Name="FUELP"
+        <Label x:Name="FUELP"
                Content="FUELP" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 
                Foreground="Yellow"
-               Height="35"
-               Width="98" 
-               Margin="649,306,0,0" 
+               Height="41"
+               Width="111" 
+               Margin="783,321,0,0" 
                FontSize="24"
                FontFamily="Russo One" />
-            <Label x:Name="FuelPress"
+        <Label x:Name="FuelPress"
                HorizontalAlignment="Left" 
                VerticalAlignment="Top"
                Foreground="{Binding FuelPressureColor}"
-               Height="59" 
-               Width="85" 
-               Margin="649,341,0,0"
+               Height="67" 
+               Width="96" 
+               Margin="783,362,0,0"
                FontSize="36"
                FontFamily="Russo One"
                Content="{Binding FuelPressure}"/>
-
-
-            <Grid x:Name="Tachometer">
-                <ProgressBar x:Name="Tach_BG"
+        <ProgressBar x:Name="Tach_BG"
                              Template="{StaticResource PBTach}" 
                              BorderBrush="Yellow" 
                             VerticalAlignment="Top" 
                             Foreground="#FF3F4200"
                             HorizontalAlignment="Left" 
                             Background="#FF4B4B00"
-                            Value="100" Margin="-25,-30,0,0" Width="797"/>
-                <ProgressBar x:Name="Tach"
+                            Value="100" Width="980" Height="296" Margin="0,-35,0,0"/>
+        <ProgressBar x:Name="Tach"
                              Template="{StaticResource PBTach}" 
                          VerticalAlignment="Top" 
                          Foreground="{Binding TachColor}"
                          HorizontalAlignment="Left" 
                          BorderBrush="{Binding TachColor}" 
-                         Value="{Binding TachPercentage}" Margin="-25,-30,0,0" Width="797"/>
+                         Value="{Binding TachPercentage}"  Width="990" Height="284" Margin="0,-35,0,0"/>
 
 
 
-                <Label x:Name="RPM0" 
+        <Label x:Name="RPM0" 
                    Content="0" 
                HorizontalAlignment="Left"
-               Margin="0,217,0,0" 
+               Margin="24,249,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="23" />
-                <Label x:Name="RPM1"
+               FontSize="18" Width="26" Height="34" />
+        <Label x:Name="RPM1"
                Content="1" 
                HorizontalAlignment="Left" 
-               Margin="72,197,0,0" 
+               Margin="111,223,0,0" 
                VerticalAlignment="Top"
                Foreground="Yellow" 
                FontFamily="NI7SEG"
-               FontSize="18" Width="24"/>
-                <Label x:Name="RPM2" 
+               FontSize="18" Width="27" Height="33"/>
+        <Label x:Name="RPM2" 
                Content="2" 
                HorizontalAlignment="Left" 
-               Margin="141,179,0,0" 
+               Margin="207,197,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="24"/>
-                <Label x:Name="RPM3" 
+               FontSize="18" Width="28" Height="33"/>
+        <Label x:Name="RPM3" 
                Content="3" 
                HorizontalAlignment="Left" 
-               Margin="222,159,0,0" 
+               Margin="295,176,0,0" 
                VerticalAlignment="Top"
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="23"/>
-                <Label x:Name="RPM4" 
+               FontSize="18" Width="27" Height="34"/>
+        <Label x:Name="RPM4" 
                Content="4" 
                HorizontalAlignment="Left" 
-               Margin="293,142,0,0" 
+               Margin="390,153,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="24"/>
-                <Label x:Name="RPM5" 
+               FontSize="18" Width="28" Height="34"/>
+        <Label x:Name="RPM5" 
                Content="5" 
                HorizontalAlignment="Left" 
-               Margin="365,128,0,0" 
+               Margin="479,135,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG"
-               FontSize="18" RenderTransformOrigin="0.529,0.285" Width="24"/>
-                <Label x:Name="RPM6" 
+               FontSize="18" RenderTransformOrigin="0.529,0.285" Width="27" Height="34"/>
+        <Label x:Name="RPM6" 
                Content="6" 
                HorizontalAlignment="Left" 
-               Margin="438,117,0,0" 
+               Margin="575,121,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="23"/>
-                <Label x:Name="RPM7" 
+               FontSize="18" Width="27" Height="33"/>
+        <Label x:Name="RPM7" 
                Content="7" 
                HorizontalAlignment="Left" 
-               Margin="517,109,0,0" 
+               Margin="663,112,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="24"/>
-                <Label x:Name="RPM8" 
+               FontSize="18" Width="27" Height="33"/>
+        <Label x:Name="RPM8" 
                Content="8" 
                HorizontalAlignment="Left"
-               Margin="589,104,0,0" 
+               Margin="758,107,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" RenderTransformOrigin="0.539,0.477" Width="24"/>
-                <Label x:Name="RPM9" 
+               FontSize="18" RenderTransformOrigin="0.539,0.477" Width="28" Height="33"/>
+        <Label x:Name="RPM9" 
                Content="9" 
                HorizontalAlignment="Left" 
-               Margin="662,102,0,0" 
+               Margin="846,104,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
-               FontSize="18" Width="23"/>
-                <Label x:Name="RPM10" 
+               FontSize="18" Width="26" Height="33"/>
+        <Label x:Name="RPM10" 
                Content="10"
                HorizontalAlignment="Left"
-               Margin="735,102,0,0" 
+               Margin="933,107,0,0" 
                VerticalAlignment="Top" 
                Foreground="Yellow" 
                FontFamily="NI7SEG" 
                FontSize="18" 
-               FontStretch="Condensed" Width="37"/>
+               FontStretch="Condensed" Width="43" Height="33"/>
 
-            </Grid>
-        </Grid>
+
     </Grid>
+
 </UserControl>
 

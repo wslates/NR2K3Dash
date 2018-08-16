@@ -93,6 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Messaging\NextViewMessage.cs" />
+    <Compile Include="Model\KeyboardHook.cs" />
     <Compile Include="ViewModel\AnalogViewModel.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="Views\Analog.xaml.cs">

@@ -2,8 +2,11 @@
 using GalaSoft.MvvmLight.CommandWpf;
 using N2k3Dash.Model;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Documents;
 using System.Windows.Interop;
 using System.Windows.Media;
 
@@ -18,8 +21,14 @@ namespace N2k3Dash.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private ViewModelBase _currentViewModel;
-        readonly static DefaultViewModel _digital1ViewModel = new DefaultViewModel();
-        readonly static AnalogViewModel _analogViewModel = new AnalogViewModel();
+        DashboardViewModel[] _dashLayouts = new DashboardViewModel[]
+        {
+            new DefaultViewModel(),
+            new AnalogViewModel()
+        };        private int _currentLayout = 0;
+        private LowLevelKeyboardListener _listener;
+
+        public RelayCommand OnCloseAction { get; private set; }
         public ViewModelBase CurrentViewModel
         {
             get
@@ -39,17 +48,36 @@ namespace N2k3Dash.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            CurrentViewModel = _analogViewModel;
+            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
+            OnCloseAction = new RelayCommand(OnClose);
+            CurrentViewModel = _dashLayouts[0];
+            _listener = new LowLevelKeyboardListener();
+            _listener.OnKeyPressed += OnKeyPressed;
+            _listener.HookKeyboard();
+        }
 
+        private void OnKeyPressed(object sender, KeyPressedArgs e)
+        {
+            Console.WriteLine(e.KeyPressed);
+            if (e.KeyPressed.Equals(System.Windows.Input.Key.OemPeriod))
+            {
+                if (++_currentLayout > _dashLayouts.Length - 1)
+                    _currentLayout = 0;
+                CurrentViewModel = _dashLayouts[_currentLayout];
+            } else if (e.KeyPressed.Equals(System.Windows.Input.Key.OemComma))
+            {
+                if (--_currentLayout < 0)
+                    _currentLayout = _dashLayouts.Length - 1;
+                CurrentViewModel = _dashLayouts[_currentLayout];
+            }
+            
 
         }
 
-
-        [DllImport("user32.dll")]
-        private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
-
-        [DllImport("user32.dll")]
-        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        private void OnClose()
+        {
+            _listener.UnHookKeyboard();
+        }
     }
 
    

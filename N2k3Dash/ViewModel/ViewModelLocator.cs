@@ -41,8 +41,6 @@ namespace N2k3Dash.ViewModel
             */
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<DefaultViewModel>();
-            SimpleIoc.Default.Register<AnalogViewModel>();
         }
 
         /// <summary>
@@ -58,24 +56,7 @@ namespace N2k3Dash.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
-         "CA1822:MarkMembersAsStatic",
-         Justification = "This non-static member is needed for data binding purposes.")]
-        public DefaultViewModel Default
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<DefaultViewModel>();
-            }
-        }
 
-        public AnalogViewModel Analog
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AnalogViewModel>();
-            }
-        }
 
         /// <summary>
         /// Cleans up all the resources.
