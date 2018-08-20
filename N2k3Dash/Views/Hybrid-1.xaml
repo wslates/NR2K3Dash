@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="N2k3Dash.Views.Hybrid_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:N2k3Dash.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000">
+    <Grid Background="Black">
+        <Image x:Name="TachometerFace" RenderOptions.EdgeMode="Aliased" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="441" Margin="277,8,0,0" Source= "{Binding TachFacePath}"/>
+        <Image x:Name="TachometerNeedle" HorizontalAlignment="Left" Height="163"  RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Top" Width="32" Source="{Binding NeedlePath}" Margin="483,74,0,0" RenderTransformOrigin="0.508,0.907">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding TachNeedleAngle}"/>
+                    <TranslateTransform X="-1.607" Y="0.845"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="RPM" Content="{Binding RPM}" Foreground="{Binding RPMColor}" HorizontalAlignment="Left" Margin="547,191,0,0" VerticalAlignment="Top" FontFamily="Russo One" Height="64" Width="133" FontSize="36" />
+        <Label x:Name="Status" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top"
+               Foreground="White"
+               Height="33" 
+               Width="301" 
+               Margin="10,376,0,0" 
+               FontSize="10"
+               HorizontalContentAlignment="Left" 
+               FontFamily="Russo One" 
+               Content="{Binding Status}"/>
+        <Label x:Name="OILT" Content="OILT"
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Foreground="Yellow" 
+               Height="68" 
+               Width="111" 
+               Margin="65,198,0,0" 
+               FontSize="36" 
+               FontFamily="Russo One" />
+        <Label x:Name="WATT" 
+               Content="WATT" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Foreground="DeepSkyBlue" 
+               Height="68" 
+               Width="132"
+               Margin="65,64,0,0"
+               FontSize="36" 
+               FontFamily="Russo One" />
+        <Label x:Name="OilTemp" 
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Foreground="White"
+               Height="73" 
+               Width="170" 
+               Margin="65,244,0,0"
+               FontSize="55"
+               FontFamily="Russo One"
+               Content="{Binding OilTemp}"/>
+        <Label x:Name="WaterTemp" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Foreground="{Binding WaterTempColor}"
+               Height="73"
+               Width="170"
+               Margin="65,108,0,0" 
+               FontSize="55"
+               FontFamily="Russo One"
+               Content="{Binding WaterTemp}"/>
+        <Label x:Name="OILP"
+               Content="OILP"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Foreground="Yellow"
+               Height="41" Width="97"
+               Margin="746,67,0,0"
+               FontSize="24"
+               FontFamily="Russo One" />
+        <Label x:Name="VOLTS"
+               Content="VOLTS"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Foreground="Yellow" 
+               Height="40"
+               Width="112" 
+               Margin="746,304,0,0" 
+               FontSize="24" 
+               FontFamily="Russo One" />
+        <Label x:Name="OilPress"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top" 
+               Foreground="{Binding OilPressureColor}"
+               Height="67"
+               Width="97"
+               Margin="746,108,0,0" 
+               FontSize="36"
+               FontFamily="Russo One"
+               Content="{Binding OilPressure}"/>
+        <Label x:Name="Voltage"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Foreground="White"
+               Height="68" 
+               Width="97" 
+               Margin="746,344,0,0"
+               FontSize="36"
+               FontFamily="Russo One"
+               Content="{Binding Voltage}"/>
+        <Label x:Name="FUELP"
+               Content="FUELP" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Foreground="Yellow"
+               Height="41"
+               Width="111" 
+               Margin="746,189,0,0" 
+               FontSize="24"
+               FontFamily="Russo One" />
+        <Label x:Name="FuelPress"
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top"
+               Foreground="{Binding FuelPressureColor}"
+               Height="67" 
+               Width="96" 
+               Margin="746,230,0,0"
+               FontSize="36"
+               FontFamily="Russo One"
+               Content="{Binding FuelPressure}"/>
+    </Grid>
+</UserControl>

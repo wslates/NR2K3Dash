@@ -41,6 +41,7 @@ namespace N2k3Dash.ViewModel
             */
 
             SimpleIoc.Default.Register<MainViewModel>();
+
         }
 
         /// <summary>
@@ -56,7 +57,6 @@ namespace N2k3Dash.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-
 
         /// <summary>
         /// Cleans up all the resources.

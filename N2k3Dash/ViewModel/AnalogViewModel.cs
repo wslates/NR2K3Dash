@@ -141,14 +141,14 @@ namespace N2k3Dash.ViewModel
                 }
             }
         }
-        public static string OilTemperatureFacePath
+        public string OilTemperatureFacePath
         {
             get
             {
                 return AssemblyDirectory + "\\Images\\oil_temp_face.png";
             }
         }
-        public static string VoltageFacePath
+        public string VoltageFacePath
         {
             get
             {
@@ -156,7 +156,7 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public static string NeedlePath
+        public string NeedlePath
         {
             get
             {
@@ -224,49 +224,49 @@ namespace N2k3Dash.ViewModel
 
         private void RunDashboard()
         {
-            Tachometer tach = Tachometer.GetInstance();
+            tach = Gauge.GetInstance();
             tach.GaugeUpdated += RefreshDash;
 
             //tachometer setup
             TachNeedleAngle = 0;
             RPMColor = Brushes.Black;
-            RPM = "0";
+            RPM = 0;
             TachFacePath = "tach_face.png";
 
             //water temperature setup
             WaterTemperatureNeedleAngle = 0;
             WaterTempColor = Brushes.Black;
-            WaterTemp = "0";
+            WaterTemp = 0;
             WaterTemperatureFacePath = "water_temp_face.png";
 
             //oil temperature setup
             OilTemperatureNeedleAngle = 0;
-            OilTemp = "0";
+            OilTemp = 0;
             
             //fuel pressure setup
             FuelPressureNeedleAngle = 0;
-            FuelPressure = "0";
+            FuelPressure = 0;
             FuelPressureColor = Brushes.Black;
             FuelPressureFacePath = "fuel_press_face.png";
 
             //oil pressure setup
             OilPressureNeedleAngle = 0;
-            OilPressure = "0";
+            OilPressure = 0;
             OilPressureColor = Brushes.Black;
             OilPressureFacePath = "oil_press_face.png";
 
             //voltage
             VoltageNeedleAngle = 0;
-            Voltage = "0";
+            Voltage = 0;
             
         }
 
         private void RefreshDash(object sender, GaugeUpdatedEventArgs e)
         {
             //RPM
-            RPM = Math.Round(e._gaugeData.rpm).ToString();
-            TachNeedleAngle = e._gaugeData.rpm;
-            if (GetBit(e._gaugeData.rpmWarning, 0))
+            RPM = e._gaugeData.rpm;
+            TachNeedleAngle = _RPM;
+            if (GetBit(e._gaugeData.warnings, 0))
             {
                 if (RPMColor.Equals(Brushes.Black))
                 {
@@ -280,14 +280,14 @@ namespace N2k3Dash.ViewModel
             }
 
             //Oil Temp
-            OilTemp = Math.Round(e._gaugeData.oilTemp * 1.8f + 32.0f).ToString();
-            OilTemperatureNeedleAngle = e._gaugeData.oilTemp * 1.8f + 32.0f;
+            OilTemp = e._gaugeData.oilTemp * 1.8f + 32.0f;
+            OilTemperatureNeedleAngle = _oilTemp;
 
             //water temp
-            WaterTemp = Math.Round(e._gaugeData.waterTemp * 1.8f + 32.0f).ToString();
-            WaterTemperatureNeedleAngle = e._gaugeData.waterTemp * 1.8f + 32.0f;
+            WaterTemp = e._gaugeData.waterTemp * 1.8f + 32.0f;
+            WaterTemperatureNeedleAngle = _waterTemp;
 
-            if (GetBit(e._gaugeData.rpmWarning, 1))
+            if (GetBit(e._gaugeData.warnings, 1))
             {
                 if (WaterTempColor.Equals(Brushes.Black))
                 {
@@ -302,10 +302,10 @@ namespace N2k3Dash.ViewModel
             }
 
             //oil pressure
-            OilPressure = Math.Round(e._gaugeData.oilPress * 14.5038).ToString();
-            OilPressureNeedleAngle = e._gaugeData.oilPress * 14.5038;
+            OilPressure = e._gaugeData.oilPress * 14.5038f;
+            OilPressureNeedleAngle = OilPressure;
 
-            if (GetBit(e._gaugeData.rpmWarning, 2))
+            if (GetBit(e._gaugeData.warnings, 2))
             {
                 if (OilPressureColor.Equals(Brushes.Black))
                 {
@@ -321,14 +321,14 @@ namespace N2k3Dash.ViewModel
             }
 
             //voltage
-            Voltage = e._gaugeData.voltage.ToString();
+            Voltage = e._gaugeData.voltage;
             VoltageNeedleAngle = e._gaugeData.voltage;
 
             //fuel pressure
-            FuelPressure = Math.Round(e._gaugeData.fuelPress * 14.5038).ToString();
-            FuelPressureNeedleAngle = e._gaugeData.fuelPress * 14.5038;
+            FuelPressure = e._gaugeData.fuelPress * 14.5038f;
+            FuelPressureNeedleAngle = _fuelPressure;
 
-            if (GetBit(e._gaugeData.rpmWarning, 3))
+            if (GetBit(e._gaugeData.warnings, 3))
             {
                 if (FuelPressureColor.Equals(Brushes.Black))
                 {
@@ -344,14 +344,11 @@ namespace N2k3Dash.ViewModel
             }
 
         }
-
-        private void TestGauge()
+        public override void Cleanup()
         {
-            for (int i = 0; i < 12; i += 1)
-            {
-                TachNeedleAngle = 110 + (28 * i);
-                Thread.Sleep(1000);
-            }
+            tach.GaugeUpdated -= RefreshDash;
+            tach = null;
+            base.Cleanup();
         }
     }
 }

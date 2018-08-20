@@ -19,6 +19,9 @@
         <DataTemplate DataType="{x:Type vm:AnalogViewModel}">
             <views:Analog/>
         </DataTemplate>
+        <DataTemplate  DataType="{x:Type vm:Hybrid1ViewModel}">
+            <views:Hybrid_1></views:Hybrid_1>
+        </DataTemplate>
     </Application.Resources>
     
 </Application>

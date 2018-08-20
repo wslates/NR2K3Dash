@@ -61,7 +61,6 @@ C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\MainWindow.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Skins\MainSkin.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Analog.g.cs
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Default.g.cs
-C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Digital_1.g.cs
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\MainWindow.g.cs
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\App.g.cs
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
@@ -70,7 +69,6 @@ C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash_Markup
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\App.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Analog.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Default.baml
-C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Digital_1.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.g.resources
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.Properties.Resources.resources
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.csproj.GenerateResource.cache
@@ -78,3 +76,5 @@ C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.csproj
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.csproj.CopyComplete
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.exe
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.pdb
+C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Hybrid-1.g.cs
+C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Views\Hybrid-1.baml

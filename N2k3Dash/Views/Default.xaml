@@ -4,10 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna"  
-             xmlns:local="clr-namespace:N2k3Dash.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="1000"
-             >
+             d:DesignHeight="450" d:DesignWidth="1000">
 
     <UserControl.Resources>
         <ControlTemplate x:Key="PBTach" TargetType="{x:Type ProgressBar}">

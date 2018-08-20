@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using N2k3Dash.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,18 @@ namespace N2k3Dash.ViewModel
 {
     public class DashboardViewModel : ViewModelBase
     {
-        private string _status;
-        private string _RPM;
-        private string _waterTemp;
-        private string _oilTemp;
-        private string _oilPressure;
-        private string _voltage;
-        private string _fuelPressure;
+        protected string _status;
+        protected float _RPM = 0;
+        protected float _waterTemp = 0;
+        protected float _oilTemp = 0;
+        protected float _oilPressure = 0;
+        protected float _voltage = 0;
+        protected float _fuelPressure = 0;
         protected bool _RPMWarning;
         protected bool _waterTempWarning;
         protected bool _fuelPressureWarning;
         protected bool _oilPressureWarning;
+        protected Gauge tach;
 
         private Brush _RPMColor;
         private Brush _WaterTempColor;
@@ -41,11 +43,11 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string RPM
+        public float RPM
         {
             get
             {
-                return _RPM;
+                return (int)_RPM;
             }
             set
             {
@@ -53,11 +55,11 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string WaterTemp
+        public float WaterTemp
         {
             get
             {
-                return _waterTemp;
+                return (int)_waterTemp;
             }
             set
             {
@@ -65,11 +67,11 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string OilTemp
+        public float OilTemp
         {
             get
             {
-                return _oilTemp;
+                return (int)_oilTemp;
             }
             set
             {
@@ -77,11 +79,11 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string OilPressure
+        public float OilPressure
         {
             get
             {
-                return _oilPressure;
+                return (int)_oilPressure;
             }
             set
             {
@@ -89,7 +91,7 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string Voltage
+        public float Voltage
         {
             get
             {
@@ -101,11 +103,11 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public string FuelPressure
+        public float FuelPressure
         {
             get
             {
-                return _fuelPressure;
+                return (int)_fuelPressure;
             }
             set
             {
@@ -197,9 +199,15 @@ namespace N2k3Dash.ViewModel
             }
         }
 
+
         protected bool GetBit(byte b, int bitNumber)
         {
             return (b & (1 << bitNumber)) != 0;
+        }
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
         }
     }
 }

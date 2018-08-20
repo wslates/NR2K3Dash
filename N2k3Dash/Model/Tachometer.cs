@@ -17,17 +17,33 @@ namespace N2k3Dash.Model
         public float oilTemp;
         public float oilPress;
         public float voltage;
-        public byte rpmWarning;
+        public byte warnings;
 
     }
-    class Tachometer
+
+    /// <summary>
+    /// Singleton class that "runs" the tachometer. This entails constantly checking for telemetry updates 
+    /// from the game on a separate thread and firing an event if it gets a new data point.
+    /// </summary>
+    public class Gauge
     {
-        private static Tachometer _obj;
+        private static Gauge _obj;
+        /// <summary>
+        /// Event that fires if the gauge has been updated.
+        /// </summary>
         public event EventHandler<GaugeUpdatedEventArgs> GaugeUpdated;
+
+        /// <summary>
+        /// Event that fires if NR2003 has loaded or thrown an error.
+        /// </summary>
         public event EventHandler<bool> NR2003LoadedOrThrewError;
+
+        /// <summary>
+        /// Event that fires if the request for NR2003 data has been successfully requested or if the application encountered an error.
+        /// </summary>
         public event EventHandler<bool> AddressSpaceLoadedOrThrewError;
 
-        private Tachometer()
+        private Gauge()
         {
             Thread GaugeUpdateThread = new Thread(UpdateGauge)
             {
@@ -36,14 +52,20 @@ namespace N2k3Dash.Model
             GaugeUpdateThread.Start();
         }
 
-        public static Tachometer GetInstance()
+        /// <summary>
+        /// Gets the Gauge instance.
+        /// </summary>
+        /// <returns>Returns the gauge instance.</returns>
+        public static Gauge GetInstance()
         {
             if (_obj == null)
-                _obj = new Tachometer();
+                _obj = new Gauge();
             return _obj;
         }
 
-
+        /// <summary>
+        /// Constantly checks if the game has provided new telemetry data. If it has, an event is fired.
+        /// </summary>
         private void UpdateGauge()
         {
             OnAddressSpaceLoadedOrThrewError(NR2003Binding.Setup());
@@ -58,7 +80,7 @@ namespace N2k3Dash.Model
                 {
                     if (NR2003Binding.CanRequestData())
                     {
-                        IntPtr ptr = NR2003Binding.GetRPM();
+                        IntPtr ptr = NR2003Binding.GetGauges();
                         args = new GaugeUpdatedEventArgs
                         {
                             _gaugeData = (GaugeData)Marshal.PtrToStructure(ptr, typeof(GaugeData))
@@ -66,6 +88,8 @@ namespace N2k3Dash.Model
                         OnGaugeUpdate(args);
                         //RefreshDash(ref data);
                     }
+
+                    //game only provides data at 36 hz
                     Thread.Sleep(20);
                 }
             } else

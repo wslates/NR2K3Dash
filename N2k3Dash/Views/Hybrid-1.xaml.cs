@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace N2k3Dash.Gauge_Pages
+namespace N2k3Dash.Views
 {
     /// <summary>
-    /// Interaction logic for Digital_1.xaml
+    /// Interaction logic for Hybrid_1.xaml
     /// </summary>
-    public partial class Digital_1 : Page
+    public partial class Hybrid_1 : UserControl
     {
-        public Digital_1()
+        public Hybrid_1()
         {
             InitializeComponent();
         }

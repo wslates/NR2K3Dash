@@ -21,11 +21,14 @@ namespace N2k3Dash.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private ViewModelBase _currentViewModel;
-        DashboardViewModel[] _dashLayouts = new DashboardViewModel[]
+        PageTypes[] _dashLayouts = new PageTypes[]
         {
-            new DefaultViewModel(),
-            new AnalogViewModel()
-        };        private int _currentLayout = 0;
+            PageTypes.DefaultDigital,
+            PageTypes.DefaultAnalog,
+            PageTypes.Hybrid_1
+        };
+
+        private int _currentLayout = 0;
         private LowLevelKeyboardListener _listener;
 
         public RelayCommand OnCloseAction { get; private set; }
@@ -48,9 +51,8 @@ namespace N2k3Dash.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.High;
             OnCloseAction = new RelayCommand(OnClose);
-            CurrentViewModel = _dashLayouts[0];
+            CurrentViewModel = PageFactory.CreateInstance(PageTypes.DefaultDigital);
             _listener = new LowLevelKeyboardListener();
             _listener.OnKeyPressed += OnKeyPressed;
             _listener.HookKeyboard();
@@ -58,19 +60,23 @@ namespace N2k3Dash.ViewModel
 
         private void OnKeyPressed(object sender, KeyPressedArgs e)
         {
-            Console.WriteLine(e.KeyPressed);
             if (e.KeyPressed.Equals(System.Windows.Input.Key.OemPeriod))
             {
+                GC.Collect();
                 if (++_currentLayout > _dashLayouts.Length - 1)
                     _currentLayout = 0;
-                CurrentViewModel = _dashLayouts[_currentLayout];
+                CurrentViewModel.Cleanup();
+                CurrentViewModel = PageFactory.CreateInstance(_dashLayouts[_currentLayout]);
+                GC.Collect();
             } else if (e.KeyPressed.Equals(System.Windows.Input.Key.OemComma))
             {
+                GC.Collect();
                 if (--_currentLayout < 0)
                     _currentLayout = _dashLayouts.Length - 1;
-                CurrentViewModel = _dashLayouts[_currentLayout];
-            }
-            
+                CurrentViewModel.Cleanup();
+                CurrentViewModel = PageFactory.CreateInstance(_dashLayouts[_currentLayout]);
+                GC.Collect();
+            }            
 
         }
 

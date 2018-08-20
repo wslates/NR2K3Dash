@@ -13,16 +13,11 @@ namespace N2k3Dash.ViewModel
 {
     public class DefaultViewModel : DashboardViewModel
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+        
         public DefaultViewModel()
         {
             RunDashboard();
         }
-        //public string Name => throw new NotImplementedException();
-
-       
         private float _tachPercentage;
         
         public float TachPercentage
@@ -40,7 +35,7 @@ namespace N2k3Dash.ViewModel
 
         private void RunDashboard()
         {
-            Tachometer tach = Tachometer.GetInstance();
+            tach = Gauge.GetInstance();
             tach.AddressSpaceLoadedOrThrewError += AddressSpaceLoaded;
             tach.NR2003LoadedOrThrewError += NR2003Loaded;
             tach.GaugeUpdated += RefreshDash;
@@ -54,26 +49,8 @@ namespace N2k3Dash.ViewModel
                 IsBackground = true
             };
 
-            WarningsThread.Start();
-            /*
-            NR2003Binding.Setup();
-            Status = "Waiting for NR2003 to start...";
-            if (NR2003Binding.WaitForSimToRun())
-            {
-                Status = "NR2003 has started!";
-                GaugeData data;
-                while (true)
-                {
-                    if (NR2003Binding.CanRequestData())
-                    {
-                        IntPtr ptr = NR2003Binding.GetRPM();
-                        data = (GaugeData)Marshal.PtrToStructure(ptr, typeof(GaugeData));
-                        RefreshDash(ref data);
-                    }
-                    Thread.Sleep(20);
-                }
-            }
-           */
+            //WarningsThread.Start();
+
         }
 
 
@@ -82,31 +59,31 @@ namespace N2k3Dash.ViewModel
         {
             
             //RPM
-            RPM = Math.Round(e._gaugeData.rpm).ToString();
-            _RPMWarning = GetBit(e._gaugeData.rpmWarning, 0);
-            RPMColor = (GetBit(e._gaugeData.rpmWarning, 0)) ? Brushes.Red : Brushes.White;
-            TachColor = (GetBit(e._gaugeData.rpmWarning, 0)) ? Brushes.Red : Brushes.Yellow;
+            RPM = e._gaugeData.rpm;
+            _RPMWarning = GetBit(e._gaugeData.warnings, 0);
+            RPMColor = (GetBit(e._gaugeData.warnings, 0)) ? Brushes.Red : Brushes.White;
+            TachColor = (GetBit(e._gaugeData.warnings, 0)) ? Brushes.Red : Brushes.Yellow;
             TachPercentage = (e._gaugeData.rpm / 10000) * 100;
 
             //Oil Temp
-            OilTemp = Math.Round(e._gaugeData.oilTemp * 1.8f + 32.0f).ToString();
+            OilTemp = e._gaugeData.oilTemp * 1.8f + 32.0f;
 
             //Water Temp
-            WaterTemp = Math.Round(e._gaugeData.waterTemp * 1.8f + 32.0f).ToString();
-            _waterTempWarning = GetBit(e._gaugeData.rpmWarning, 1);
+            WaterTemp = e._gaugeData.waterTemp * 1.8f + 32.0f;
+            _waterTempWarning = GetBit(e._gaugeData.warnings, 1);
             //WaterTempColor = (GetBit(e._gaugeData.rpmWarning, 1)) ? Brushes.Red : Brushes.White;
 
             //Oil Pressure
-            OilPressure = Math.Round(e._gaugeData.oilPress * 14.5038).ToString();
-            _oilPressureWarning = GetBit(e._gaugeData.rpmWarning, 2);
+            OilPressure = e._gaugeData.oilPress * 14.5038f;
+            _oilPressureWarning = GetBit(e._gaugeData.warnings, 2);
             //OilPressureColor = (GetBit(e._gaugeData.rpmWarning, 2)) ? Brushes.Red : Brushes.White;
 
             //Voltage
-            Voltage = e._gaugeData.voltage.ToString();
+            Voltage = e._gaugeData.voltage;
 
             //Fuel Pressure
-            FuelPressure = Math.Round(e._gaugeData.fuelPress * 14.5038).ToString();
-            _fuelPressureWarning = GetBit(e._gaugeData.rpmWarning, 3);
+            FuelPressure = e._gaugeData.fuelPress * 14.5038f;
+            _fuelPressureWarning = GetBit(e._gaugeData.warnings, 3);
             //FuelPressureColor = (GetBit(e._gaugeData.rpmWarning, 3)) ? Brushes.Red : Brushes.White;
 
         }
@@ -150,6 +127,12 @@ namespace N2k3Dash.ViewModel
 
                 Thread.Sleep(500);
             }
+        }
+        public override void Cleanup()
+        {
+            tach.GaugeUpdated -= RefreshDash;
+            tach = null;
+            base.Cleanup();
         }
     }
 }
