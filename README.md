@@ -7,6 +7,14 @@ When looking through NR2003's files, I discovered a few C++ files that indicated
 
 I built all the UI elements myself using Adobe Illustrator.
 
+## Progress
+I have been detailing my progress on this project on Youtube to show to the NR2003 modding community.
+- [Initial Research](https://youtu.be/PCQH0ikYatI?t=48)
+-- This was my initial research into getting the data from the game. This was simply a C++ console app that would constantly update with the current gauge data.
+- [Initial UI Implementation](https://youtu.be/PIa7NRZof-0?t=36)
+-- This was a video detailing my first UI implementation.
+
+
 ## Known Issues
 - Program needs to be run in administrator in order to allow for keyboard hooks to work. I've read that this is an issue with DirectX, and have since been researching how to solve it. (I don't want to make this necessary to run as Administrator.)
 - There seems to be a memory leak somewhere. C#'s garbage collector doesn't seem to be picking up view models when they are not being used. I have not been able to pinpoint anywhere in code where there are some references being kept. It might also have something to do with the usage of "pages." I am still tracking down the source of this issue.
