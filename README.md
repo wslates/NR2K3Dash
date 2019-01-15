@@ -15,7 +15,7 @@ I have been detailing my progress on this project on Youtube to show to the NR20
 - [UI Improvements](https://youtu.be/bryya8gqrzI?t=34)
   - I then updated the "digital" UI to more closely match what is seen in the cars.
 - ["Analog" Gauges](https://youtu.be/_BfBi02bf6c?t=31)
-  - The cars also have an option for "analog" style gauges, which I then incorporated into the program. I built all the UI elements myself using Adobe Illustrator.
+  - The cars also have an option for "analog" style gauges, which I then incorporated into the program. I built all the UI elements myself using Adobe Illustrator. To switch between gauges, you can use the "<" and ">" buttons on the keyboard.
 
 
 
