@@ -10,9 +10,9 @@ I built all the UI elements myself using Adobe Illustrator.
 ## Progress
 I have been detailing my progress on this project on Youtube to show to the NR2003 modding community.
 - [Initial Research](https://youtu.be/PCQH0ikYatI?t=48)
--- This was my initial research into getting the data from the game. This was simply a C++ console app that would constantly update with the current gauge data.
+  -This was my initial research into getting the data from the game. This was simply a C++ console app that would constantly update with the current gauge data.
 - [Initial UI Implementation](https://youtu.be/PIa7NRZof-0?t=36)
--- This was a video detailing my first UI implementation.
+  -This was a video detailing my first UI implementation.
 
 
 ## Known Issues
