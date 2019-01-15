@@ -5,14 +5,18 @@ NR2K3 dash is a digital dashboard that interacts with [NASCAR Racing 2003](https
 
 When looking through NR2003's files, I discovered a few C++ files that indicated the game was capable of outputting live telemetry from the game. I didn't want to deal with UI in C++, so I built an unmanaged C++ dll that outputs specifically outputs the game's gauge telemetry, which can then be consumed by C#.
 
-I built all the UI elements myself using Adobe Illustrator.
 
 ## Progress
-I have been detailing my progress on this project on Youtube to show to the NR2003 modding community.
+I have been detailing my progress on this project on Youtube to show to the NR2003 modding community. It should be noted that **this program is running separately on another screen. It is overlayed during video editing.**
 - [Initial Research](https://youtu.be/PCQH0ikYatI?t=48)
-  -This was my initial research into getting the data from the game. This was simply a C++ console app that would constantly update with the current gauge data.
+  - This was my initial research into getting the data from the game. This was simply a C++ console app that would constantly update with the current gauge data.
 - [Initial UI Implementation](https://youtu.be/PIa7NRZof-0?t=36)
-  -This was a video detailing my first UI implementation.
+  - This was a video detailing my first UI implementation.
+- [UI Improvements](https://youtu.be/bryya8gqrzI?t=34)
+  - I then updated the "digital" UI to more closely match what is seen in the cars.
+- ["Analog" Gauges](https://youtu.be/_BfBi02bf6c?t=31)
+  - The cars also have an option for "analog" style gauges, which I then incorporated into the program. I built all the UI elements myself using Adobe Illustrator.
+
 
 
 ## Known Issues
