@@ -5,6 +5,8 @@ NR2K3 dash is a digital dashboard that interacts with [NASCAR Racing 2003](https
 
 When looking through NR2003's files, I discovered a few C++ files that indicated the game was capable of outputting live telemetry from the game. I didn't want to deal with UI in C++, so I built an unmanaged C++ dll that outputs specifically outputs the game's gauge telemetry, which can then be consumed by C#.
 
+I built all the UI elements myself using Adobe Illustrator.
+
 ## Known Issues
 - Program needs to be run in administrator in order to allow for keyboard hooks to work. I've read that this is an issue with DirectX, and have since been researching how to solve it. (I don't want to make this necessary to run as Administrator.)
 - There seems to be a memory leak somewhere. C#'s garbage collector doesn't seem to be picking up view models when they are not being used. I have not been able to pinpoint anywhere in code where there are some references being kept. It might also have something to do with the usage of "pages." I am still tracking down the source of this issue.
