@@ -17,9 +17,5 @@ namespace N2k3Dash
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
-        private void Tach_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
     }
 }

@@ -346,8 +346,6 @@ namespace N2k3Dash.ViewModel
         }
         public override void Cleanup()
         {
-            tach.GaugeUpdated -= RefreshDash;
-            tach = null;
             base.Cleanup();
         }
     }

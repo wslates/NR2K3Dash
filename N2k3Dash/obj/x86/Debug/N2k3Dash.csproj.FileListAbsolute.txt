@@ -55,7 +55,6 @@ C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\bin\x86\Debug\GalaSoft.MvvmLi
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\bin\x86\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\bin\x86\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\bin\x86\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\bin\x86\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\N2k3Dash.csprojAssemblyReference.cache
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\MainWindow.baml
 C:\Users\wesle\Documents\GitHub\NR2K3Dash\N2k3Dash\obj\x86\Debug\Skins\MainSkin.baml

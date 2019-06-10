@@ -41,7 +41,7 @@ namespace N2k3Dash.Model
         /// </summary>
         /// <returns>Returns an IntPtr pointing to a GaugeData struct.</returns>
         [DllImport(@"NR2003.dll")]
-        public static extern IntPtr GetGauges();
+        public static extern IntPtr GetGaugeData();
 
         
     }

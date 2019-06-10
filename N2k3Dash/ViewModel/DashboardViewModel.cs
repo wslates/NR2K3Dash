@@ -195,7 +195,7 @@ namespace N2k3Dash.ViewModel
             }
             else
             {
-                Status = "Error";
+                Status = "NR2003 failed to load.";
             }
         }
 

@@ -95,11 +95,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\KeyboardHook.cs" />
-    <Compile Include="Model\PageTypes.cs" />
+    <Compile Include="Navigation\FrameNavigationService.cs" />
+    <Compile Include="Navigation\IFrameNavigationService.cs" />
     <Compile Include="ViewModel\AnalogViewModel.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\EmptyViewModels.cs" />
-    <Compile Include="ViewModel\PageFactory.cs" />
     <Compile Include="Views\Analog.xaml.cs">
       <DependentUpon>Analog.xaml</DependentUpon>
     </Compile>
@@ -107,7 +107,7 @@
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\NR2003Binding.cs" />
-    <Compile Include="Model\Tachometer.cs" />
+    <Compile Include="Model\Gauge.cs" />
     <Compile Include="ViewModel\DefaultViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

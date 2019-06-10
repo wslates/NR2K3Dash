@@ -18,7 +18,7 @@ namespace N2k3Dash.Views
     /// <summary>
     /// Interaction logic for Default.xaml
     /// </summary>
-    public partial class Default : UserControl
+    public partial class Default : Page
     {
         public Default()
         {

@@ -1,27 +1,18 @@
-﻿<Application x:Class="N2k3Dash.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:N2k3Dash.ViewModel"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:N2k3Dash.Views"
-			 xmlns:ignore="http://www.galasoft.ch/ignore"
-             StartupUri="MainWindow.xaml"
-             mc:Ignorable="d ignore">
-    
+﻿<Application
+    x:Class="N2k3Dash.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ignore="http://www.galasoft.ch/ignore"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:N2k3Dash.Views"
+    xmlns:vm="clr-namespace:N2k3Dash.ViewModel"
+    StartupUri="MainWindow.xaml"
+    mc:Ignorable="d ignore">
+
     <Application.Resources>
-        <!--Global View Model Locator-->
-        <vm:ViewModelLocator x:Key="Locator"
-                             d:IsDataSource="True" />
-        <DataTemplate DataType="{x:Type vm:DefaultViewModel}">
-            <views:Default/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:AnalogViewModel}">
-            <views:Analog/>
-        </DataTemplate>
-        <DataTemplate  DataType="{x:Type vm:Hybrid1ViewModel}">
-            <views:Hybrid_1></views:Hybrid_1>
-        </DataTemplate>
+        <!--  Global View Model Locator  -->
+        <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
     </Application.Resources>
-    
+
 </Application>
