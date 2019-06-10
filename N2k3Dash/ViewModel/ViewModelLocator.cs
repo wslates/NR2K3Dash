@@ -13,6 +13,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using N2k3Dash.Model;
+using N2k3Dash.Navigation;
+using System;
 
 namespace N2k3Dash.ViewModel
 {
@@ -25,23 +27,22 @@ namespace N2k3Dash.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
+        private static FrameNavigationService _navigationService;
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            /*
-            if (ViewModelBase.IsInDesignModeStatic)
-            {
-                SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
-            }
-            else
-            {
-                SimpleIoc.Default.Register<IDataService, DataService>();
-            }
-            */
-
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<AnalogViewModel>();
+            SimpleIoc.Default.Register<DefaultViewModel>();
+            SetupNavigation();
 
+        }
+
+        private static void SetupNavigation()
+        {
+            _navigationService = new FrameNavigationService();
+            _navigationService.Configure("Default", new Uri("../Views/Default.xaml", UriKind.Relative));
+            _navigationService.Configure("Analog", new Uri("../Views/Analog.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -58,11 +59,33 @@ namespace N2k3Dash.ViewModel
             }
         }
 
+        public DefaultViewModel DefaultViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DefaultViewModel>();
+            }
+        }
+
+        public AnalogViewModel Analog
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AnalogViewModel>();
+            }
+        }
+
+        public static void NavigateToStartPage()
+        {
+            //Navigate to first page
+            _navigationService.NavigateTo("Default");
+        }
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>
         public static void Cleanup()
         {
+            _navigationService.Unhook();
         }
     }
 }

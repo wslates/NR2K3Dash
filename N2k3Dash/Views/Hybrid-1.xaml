@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="N2k3Dash.Views.Hybrid_1"
+﻿<Page x:Class="N2k3Dash.Views.Hybrid_1"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -129,4 +129,4 @@
                FontFamily="Russo One"
                Content="{Binding FuelPressure}"/>
     </Grid>
-</UserControl>
+</Page>

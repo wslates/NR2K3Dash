@@ -18,7 +18,7 @@ namespace N2k3Dash.Views
     /// <summary>
     /// Interaction logic for Hybrid_1.xaml
     /// </summary>
-    public partial class Hybrid_1 : UserControl
+    public partial class Hybrid_1 : Page
     {
         public Hybrid_1()
         {

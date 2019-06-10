@@ -1,13 +1,14 @@
-﻿<UserControl x:Class="N2k3Dash.Views.Default"
+﻿<Page x:Class="N2k3Dash.Views.Default"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna"  
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="1000">
+             d:DesignHeight="450" d:DesignWidth="1000"
+             DataContext="{Binding Path=DefaultViewModel, Source={StaticResource Locator}}">
 
-    <UserControl.Resources>
+    <Page.Resources>
         <ControlTemplate x:Key="PBTach" TargetType="{x:Type ProgressBar}">
             <Grid>
                 <Path x:Name="PART_Track" 
@@ -35,7 +36,7 @@
                 <Decorator x:Name="PART_Indicator"/>
             </Grid>
         </ControlTemplate>
-    </UserControl.Resources>
+    </Page.Resources>
 
     <Grid x:Name="LayoutRoot"  Background="Black">
         <Label x:Name="RPML"
@@ -278,5 +279,5 @@
 
     </Grid>
 
-</UserControl>
+</Page>
 

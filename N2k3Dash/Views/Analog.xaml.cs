@@ -18,7 +18,7 @@ namespace N2k3Dash.Views
     /// <summary>
     /// Interaction logic for Analog.xaml
     /// </summary>
-    public partial class Analog : UserControl
+    public partial class Analog : Page
     {
         public Analog()
         {

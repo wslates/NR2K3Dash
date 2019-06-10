@@ -16,8 +16,10 @@ namespace N2k3Dash.ViewModel
         
         public DefaultViewModel()
         {
+            Console.WriteLine("Default view model engaged");
             RunDashboard();
         }
+
         private float _tachPercentage;
         
         public float TachPercentage
