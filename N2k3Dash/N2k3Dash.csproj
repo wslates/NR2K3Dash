@@ -94,9 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\KeyboardHook.cs" />
+    <Compile Include="Util\KeyboardHook.cs" />
     <Compile Include="Navigation\FrameNavigationService.cs" />
     <Compile Include="Navigation\IFrameNavigationService.cs" />
+    <Compile Include="Util\NR2003Types.cs" />
     <Compile Include="ViewModel\AnalogViewModel.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\EmptyViewModels.cs" />
@@ -106,8 +107,8 @@
     <Compile Include="Views\Default.xaml.cs">
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\NR2003Binding.cs" />
-    <Compile Include="Model\Gauge.cs" />
+    <Compile Include="Util\NR2003Binding.cs" />
+    <Compile Include="Util\Gauge.cs" />
     <Compile Include="ViewModel\DefaultViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -199,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\needle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

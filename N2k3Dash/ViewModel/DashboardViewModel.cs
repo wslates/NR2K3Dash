@@ -18,6 +18,7 @@ namespace N2k3Dash.ViewModel
         protected float _oilPressure = 0;
         protected float _voltage = 0;
         protected float _fuelPressure = 0;
+        private string _laptime = "0.000";
         protected bool _RPMWarning;
         protected bool _waterTempWarning;
         protected bool _fuelPressureWarning;
@@ -112,6 +113,18 @@ namespace N2k3Dash.ViewModel
             set
             {
                 Set(ref _fuelPressure, value);
+            }
+        }
+
+        public string LapTime
+        {
+            get
+            {
+                return _laptime;
+            } 
+            set
+            {
+                Set(ref _laptime, value);
             }
         }
 

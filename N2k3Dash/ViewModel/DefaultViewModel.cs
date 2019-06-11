@@ -41,6 +41,7 @@ namespace N2k3Dash.ViewModel
             tach.AddressSpaceLoadedOrThrewError += AddressSpaceLoaded;
             tach.NR2003LoadedOrThrewError += NR2003Loaded;
             tach.GaugeUpdated += RefreshDash;
+            tach.LapTimeUpdated += LapTimeUpdated;
             RPMColor = Brushes.White;
             WaterTempColor = Brushes.White;
             OilPressureColor = Brushes.White;
@@ -129,6 +130,11 @@ namespace N2k3Dash.ViewModel
 
                 Thread.Sleep(500);
             }
+        }
+
+        public void LapTimeUpdated(object sender, LapTimeUpdatedEventArgs e)
+        {
+            LapTime = e.lapTime;
         }
         public override void Cleanup()
         {
