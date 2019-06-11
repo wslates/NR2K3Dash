@@ -1,25 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using N2k3Dash.Util;
+using static N2k3Dash.Util.NR2003Types;
 
 namespace N2k3Dash.Model
 {
-    [StructLayoutAttribute(LayoutKind.Sequential)]
-    public struct GaugeData
-    {
-        public float rpm;
-        public float waterTemp;
-        public float fuelPress;
-        public float oilTemp;
-        public float oilPress;
-        public float voltage;
-        public byte warnings;
 
-    }
 
     /// <summary>
     /// Singleton class that "runs" the tachometer. This entails constantly checking for telemetry updates 
@@ -33,6 +20,8 @@ namespace N2k3Dash.Model
         /// </summary>
         public event EventHandler<GaugeUpdatedEventArgs> GaugeUpdated;
 
+
+        public event EventHandler<LapTimeUpdatedEventArgs> LapTimeUpdated;
         /// <summary>
         /// Event that fires if NR2003 has loaded or thrown an error.
         /// </summary>
@@ -77,17 +66,57 @@ namespace N2k3Dash.Model
                 OnNR2003LoadedOrThrewError(true);
                 //Status = "NR2003 has started!";
                 GaugeUpdatedEventArgs args;
+                TimeSpan lap = new TimeSpan(0, 0, 0, 0, 0);
+                LapCrossing lapCache = new LapCrossing()
+                {
+                    carIdx = new byte[] { 0, 0, 0, 0 },
+                    lapNum = new byte[] { 0, 0, 0, 0 },
+                    flags = new byte[] { 0, 0, 0, 0 },
+                    crossedAt = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 },
+                };
+                GaugeData gaugeCache = new GaugeData();
                 while (true)
                 {
-                    if (NR2003Binding.CanRequestData())
+                    NR2003Binding.RequestData();
+                    IntPtr gd = NR2003Binding.GetGaugeData();
+                    if (gd != IntPtr.Zero)
                     {
-                        IntPtr ptr = NR2003Binding.GetGaugeData();
-                        args = new GaugeUpdatedEventArgs
+
+                        GaugeData gauge = (GaugeData)Marshal.PtrToStructure(gd, typeof(GaugeData));
+                        if (gauge != gaugeCache)
                         {
-                            _gaugeData = (GaugeData)Marshal.PtrToStructure(ptr, typeof(GaugeData))
-                        };
-                        OnGaugeUpdate(args);
-                        //RefreshDash(ref data);
+                            OnGaugeUpdate(new GaugeUpdatedEventArgs { _gaugeData = gauge });
+                        }
+
+                    }
+
+                    IntPtr ptrlap = NR2003Binding.GetLapCrossing();
+                    if (ptrlap != IntPtr.Zero)
+                    {
+
+                        LapCrossing _lap = (LapCrossing)Marshal.PtrToStructure(ptrlap, typeof(LapCrossing));
+                        if (_lap != lapCache)
+                        {
+                            double crossed = BitConverter.ToDouble(_lap.crossedAt, 0);
+                            int seconds = Convert.ToInt32(Math.Truncate(crossed));
+                            int milliseconds = Convert.ToInt32((crossed - seconds) * 1000);
+                            TimeSpan crossedAt = new TimeSpan(0, 0, 0, seconds, milliseconds);
+                            int carIdx = BitConverter.ToInt32(_lap.carIdx, 0);
+                            if (carIdx == 0 && crossedAt > lap)
+                            {
+                                OnLapTimeUpdate(new LapTimeUpdatedEventArgs { lapTime = string.Format("{0:0.000}", (crossedAt - lap).TotalSeconds) });
+                                lap = crossedAt;
+                                lapCache = _lap;
+                            }
+                            else if (carIdx == 0)
+                            {
+                                lap = crossedAt;
+                                lapCache = _lap;
+                            }
+
+                        }
+
+
                     }
 
                     //game only provides data at 36 hz
@@ -99,11 +128,16 @@ namespace N2k3Dash.Model
             }
         }
 
+        
         protected virtual void OnGaugeUpdate(GaugeUpdatedEventArgs e)
         {
             GaugeUpdated?.Invoke(this, e);
         }
 
+        protected virtual void OnLapTimeUpdate(LapTimeUpdatedEventArgs e)
+        {
+            LapTimeUpdated?.Invoke(this, e);
+        }
         protected virtual void OnNR2003LoadedOrThrewError(bool e)
         {
             NR2003LoadedOrThrewError?.Invoke(this, e);
@@ -118,5 +152,10 @@ namespace N2k3Dash.Model
     public class GaugeUpdatedEventArgs : EventArgs
     {
        public GaugeData _gaugeData { get; set; }
+    }
+
+    public class LapTimeUpdatedEventArgs : EventArgs
+    {
+        public string lapTime { get; set; }
     }
 }

@@ -43,14 +43,14 @@
     <Viewbox>
         <Grid
             x:Name="LayoutRoot"
-            Height="492"
+            Height="421"
             Background="Black">
             <Grid.RowDefinitions>
-                <RowDefinition Height="296" />
-                <RowDefinition Height="44" />
-                <RowDefinition Height="66" />
-                <RowDefinition Height="37" />
-                <RowDefinition Height="49" />
+                <RowDefinition Height="225" />
+                <RowDefinition Height="47" />
+                <RowDefinition Height="63" />
+                <RowDefinition Height="33" />
+                <RowDefinition Height="123" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -64,6 +64,7 @@
             <ProgressBar
                 x:Name="Tach_BG"
                 Grid.Row="0"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="5"
                 Margin="0,-26,40,4"
                 Background="#FF4B4B00"
@@ -74,6 +75,7 @@
             <ProgressBar
                 x:Name="Tach"
                 Grid.Row="0"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="5"
                 Margin="0,-26,40,5"
                 BorderBrush="{Binding TachColor}"
@@ -84,7 +86,7 @@
             <Label
                 x:Name="RPML"
                 Grid.Row="1"
-                Grid.Column="3"
+                Grid.Column="4"
                 Margin="0,0,79,0"
                 Content="RPM"
                 FontFamily="Russo One"
@@ -92,17 +94,20 @@
                 Foreground="Yellow" />
             <Label
                 x:Name="RPM"
-                Grid.Row="2"
-                Grid.Column="3"
-                Margin="0,0,79,0"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="4"
+                Margin="0,31,0,0"
+                Padding="0"
                 Content="{Binding RPM}"
                 FontFamily="Russo One"
-                FontSize="55"
+                FontSize="75"
                 Foreground="{Binding RPMColor}" />
             <Label
                 x:Name="Status"
-                Grid.ColumnSpan="2"
-                Margin="0,0,11,247"
+                Grid.Column="4"
+                Margin="17,0,0,186"
+                HorizontalContentAlignment="Right"
                 Content="{Binding Status}"
                 FontFamily="Russo One"
                 FontSize="10"
@@ -110,7 +115,7 @@
             <Label
                 x:Name="OILT"
                 Grid.Row="1"
-                Grid.Column="2"
+                Grid.Column="3"
                 Margin="1,0,6,0"
                 Content="OILT"
                 FontFamily="Russo One"
@@ -119,7 +124,7 @@
             <Label
                 x:Name="WATT"
                 Grid.Row="1"
-                Grid.Column="1"
+                Grid.Column="2"
                 Margin="0,0,1,0"
                 Content="WATT"
                 FontFamily="Russo One"
@@ -128,27 +133,32 @@
                 RenderTransformOrigin="0.5,-0.265" />
             <Label
                 x:Name="OilTemp"
-                Grid.Row="2"
-                Grid.Column="2"
-                Margin="21,0,5,0"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="3"
+                Grid.ColumnSpan="2"
+                Margin="4,31,316,0"
+                Padding="0"
                 Content="{Binding OilTemp}"
                 FontFamily="Russo One"
-                FontSize="55"
+                FontSize="75"
                 Foreground="White" />
             <Label
                 x:Name="WaterTemp"
-                Grid.Row="2"
-                Grid.Column="1"
-                Margin="0,3,1,0"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="2"
+                Margin="0,31,1,0"
+                Padding="0"
                 Content="{Binding WaterTemp}"
                 FontFamily="Russo One"
-                FontSize="55"
+                FontSize="75"
                 Foreground="{Binding WaterTempColor}" />
             <Label
                 x:Name="OILP"
                 Grid.Row="3"
-                Grid.Column="2"
-                Margin="1,0,6,0"
+                Grid.Column="3"
+                Margin="1,0,60,0"
                 Content="OILP"
                 FontFamily="Russo One"
                 FontSize="24"
@@ -156,52 +166,61 @@
             <Label
                 x:Name="VOLTS"
                 Grid.Row="3"
-                Grid.Column="3"
-                Margin="0,0,79,0"
+                Grid.Column="4"
+                Margin="0,0,179,0"
                 Content="VOLTS"
                 FontFamily="Russo One"
                 FontSize="24"
                 Foreground="Yellow" />
             <Label
                 x:Name="OilPress"
-                Grid.Row="4"
-                Grid.Column="2"
-                Margin="21,0,5,0"
+                Grid.Row="3"
+                Grid.RowSpan="2"
+                Grid.Column="3"
+                Margin="4,23,76,80"
+                Padding="0"
                 Content="{Binding OilPressure}"
                 FontFamily="Russo One"
-                FontSize="36"
+                FontSize="55"
                 Foreground="{Binding OilPressureColor}" />
             <Label
                 x:Name="Voltage"
-                Grid.Row="4"
-                Grid.Column="3"
-                Margin="0,0,79,0"
+                Grid.Row="3"
+                Grid.RowSpan="2"
+                Grid.Column="4"
+                Margin="0,23,179,70"
+                Padding="0"
                 Content="{Binding Voltage}"
                 FontFamily="Russo One"
-                FontSize="36"
-                Foreground="White" />
+                FontSize="55"
+                Foreground="White"
+                UseLayoutRounding="True" />
             <Label
                 x:Name="FUELP"
                 Grid.Row="3"
                 Grid.Column="4"
-                Margin="5,0,0,0"
+                Margin="168,0,52,0"
                 Content="FUELP"
                 FontFamily="Russo One"
                 FontSize="24"
                 Foreground="Yellow" />
             <Label
                 x:Name="FuelPress"
-                Grid.Row="4"
+                Grid.Row="3"
+                Grid.RowSpan="2"
                 Grid.Column="4"
-                Margin="5,0,0,0"
+                Margin="168,23,0,70"
+                Padding="0"
                 Content="{Binding FuelPressure}"
                 FontFamily="Russo One"
-                FontSize="36"
+                FontSize="55"
                 Foreground="{Binding FuelPressureColor}" />
             <Label
                 x:Name="RPM0"
-                Grid.RowSpan="2"
-                Margin="26,273,0,0"
+                Grid.Row="2"
+                Width="24"
+                Height="31"
+                Margin="26,19,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="0"
@@ -210,7 +229,11 @@
                 Foreground="Yellow" />
             <Label
                 x:Name="RPM1"
-                Margin="111,250,0,0"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Width="25"
+                Height="31"
+                Margin="111,43,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="1"
@@ -219,8 +242,12 @@
                 Foreground="Yellow" />
             <Label
                 x:Name="RPM2"
+                Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.Column="1"
-                Margin="57,224,0,0"
+                Width="24"
+                Height="31"
+                Margin="58,18,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="2"
@@ -229,9 +256,12 @@
                 Foreground="Yellow" />
             <Label
                 x:Name="RPM3"
+                Grid.RowSpan="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Margin="146,202,0,0"
+                Width="24"
+                Height="31"
+                Margin="146,220,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="3"
@@ -240,8 +270,11 @@
                 Foreground="Yellow" />
             <Label
                 x:Name="RPM4"
+                Grid.RowSpan="2"
                 Grid.Column="2"
-                Margin="77,180,0,0"
+                Width="25"
+                Height="31"
+                Margin="78,198,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="4"
@@ -251,7 +284,9 @@
             <Label
                 x:Name="RPM5"
                 Grid.Column="3"
-                Margin="9,162,0,0"
+                Width="25"
+                Height="31"
+                Margin="10,180,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="5"
@@ -261,7 +296,9 @@
             <Label
                 x:Name="RPM6"
                 Grid.Column="3"
-                Margin="106,148,0,0"
+                Width="25"
+                Height="31"
+                Margin="105,166,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="6"
@@ -272,7 +309,9 @@
                 x:Name="RPM7"
                 Grid.Column="3"
                 Grid.ColumnSpan="2"
-                Margin="193,138,0,0"
+                Width="24"
+                Height="31"
+                Margin="194,157,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="7"
@@ -282,7 +321,9 @@
             <Label
                 x:Name="RPM8"
                 Grid.Column="4"
-                Margin="80,134,0,0"
+                Width="24"
+                Height="31"
+                Margin="80,151,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="8"
@@ -292,7 +333,9 @@
             <Label
                 x:Name="RPM9"
                 Grid.Column="4"
-                Margin="168,131,0,0"
+                Width="25"
+                Height="31"
+                Margin="168,149,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="9"
@@ -302,13 +345,32 @@
             <Label
                 x:Name="RPM10"
                 Grid.Column="4"
-                Margin="256,131,0,0"
+                Width="39"
+                Height="31"
+                Margin="257,149,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="10"
                 FontFamily="NI7SEG"
                 FontSize="20"
                 Foreground="Yellow" />
+            <Label
+                x:Name="lAPTIME"
+                Grid.ColumnSpan="2"
+                Margin="10,10,101,168"
+                Content="LAPTIME"
+                FontFamily="Russo One"
+                FontSize="36"
+                Foreground="Yellow" />
+            <Label
+                x:Name="lap_Time"
+                Grid.ColumnSpan="2"
+                Margin="10,39,0,98"
+                Padding="0"
+                Content="{Binding LapTime}"
+                FontFamily="Russo One"
+                FontSize="85"
+                Foreground="White" />
 
 
         </Grid>
