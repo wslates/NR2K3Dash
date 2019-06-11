@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using N2k3Dash.Util;
 using static N2k3Dash.Util.NR2003Types;
 
 namespace N2k3Dash.Model
@@ -60,12 +59,10 @@ namespace N2k3Dash.Model
             bool loaded = NR2003Binding.Setup();
             OnAddressSpaceLoadedOrThrewError(loaded);
 
-            //Status = "Waiting for NR2003 to start...";
             if (NR2003Binding.WaitForSimToRun())
             {
                 OnNR2003LoadedOrThrewError(true);
-                //Status = "NR2003 has started!";
-                GaugeUpdatedEventArgs args;
+
                 TimeSpan lap = new TimeSpan(0, 0, 0, 0, 0);
                 LapCrossing lapCache = new LapCrossing()
                 {
