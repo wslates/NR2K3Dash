@@ -11,7 +11,7 @@
     xmlns:z="http://schemas.microsoft.com/expression/2010/interactivity"
     Title="MVVM Light Application"
     Width="1000"
-    Height="500"
+    Height="465"
     DataContext="{Binding Main, Source={StaticResource Locator}}"
     mc:Ignorable="d ignore">
     <z:Interaction.Triggers>
@@ -19,10 +19,7 @@
             <command:EventToCommand Command="{Binding LoadedCommand, Mode=OneWay}" />
         </z:EventTrigger>
     </z:Interaction.Triggers>
-    <Grid x:Name="LayoutRoot">
-        <Frame
-            x:Name="currentDisplay"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" />
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Frame x:Name="currentDisplay" />
     </Grid>
 </Window>
