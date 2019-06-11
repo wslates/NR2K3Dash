@@ -16,24 +16,8 @@ namespace N2k3Dash.ViewModel
         
         public DefaultViewModel()
         {
-            Console.WriteLine("Default view model engaged");
             RunDashboard();
         }
-
-        private float _tachPercentage;
-        
-        public float TachPercentage
-        {
-            get
-            {
-                return _tachPercentage;
-            }
-            set
-            {
-                Set(ref _tachPercentage, value);
-            }
-        }
-      
 
         private void RunDashboard()
         {
@@ -56,14 +40,12 @@ namespace N2k3Dash.ViewModel
 
         }
 
-
-
         private void RefreshDash(object sender, GaugeUpdatedEventArgs e)
         {
             
             //RPM
             RPM = e._gaugeData.rpm;
-            _RPMWarning = GetBit(e._gaugeData.warnings, 0);
+            RPMWarning = GetBit(e._gaugeData.warnings, 0);
             RPMColor = (GetBit(e._gaugeData.warnings, 0)) ? Brushes.Red : Brushes.White;
             TachColor = (GetBit(e._gaugeData.warnings, 0)) ? Brushes.Red : Brushes.Yellow;
             TachPercentage = (e._gaugeData.rpm / 10000) * 100;
@@ -73,12 +55,12 @@ namespace N2k3Dash.ViewModel
 
             //Water Temp
             WaterTemp = e._gaugeData.waterTemp * 1.8f + 32.0f;
-            _waterTempWarning = GetBit(e._gaugeData.warnings, 1);
+            WaterTempWarning= GetBit(e._gaugeData.warnings, 1);
             //WaterTempColor = (GetBit(e._gaugeData.rpmWarning, 1)) ? Brushes.Red : Brushes.White;
 
             //Oil Pressure
             OilPressure = e._gaugeData.oilPress * 14.5038f;
-            _oilPressureWarning = GetBit(e._gaugeData.warnings, 2);
+            OilPressureWarning= GetBit(e._gaugeData.warnings, 2);
             //OilPressureColor = (GetBit(e._gaugeData.rpmWarning, 2)) ? Brushes.Red : Brushes.White;
 
             //Voltage
@@ -86,7 +68,7 @@ namespace N2k3Dash.ViewModel
 
             //Fuel Pressure
             FuelPressure = e._gaugeData.fuelPress * 14.5038f;
-            _fuelPressureWarning = GetBit(e._gaugeData.warnings, 3);
+            FuelPressureWarning = GetBit(e._gaugeData.warnings, 3);
             //FuelPressureColor = (GetBit(e._gaugeData.rpmWarning, 3)) ? Brushes.Red : Brushes.White;
 
         }
@@ -96,7 +78,7 @@ namespace N2k3Dash.ViewModel
 
             while(true)
             {
-                if (_RPMWarning)
+                if (RPMWarning)
                 {
                     RPMColor = (RPMColor.Equals(Brushes.Red)) ? Brushes.White : Brushes.Red;
                 } else if (RPMColor.Equals(Brushes.Red))
@@ -104,7 +86,7 @@ namespace N2k3Dash.ViewModel
                     RPMColor = Brushes.White;
                 }
 
-                if(_waterTempWarning)
+                if(WaterTempWarning)
                 {
                     WaterTempColor = (WaterTempColor.Equals(Brushes.Red)) ? Brushes.White : Brushes.Red;
                 } else if (WaterTempColor.Equals(Brushes.Red))
@@ -112,7 +94,7 @@ namespace N2k3Dash.ViewModel
                     WaterTempColor = Brushes.White;
                 }
                 
-                if (_oilPressureWarning)
+                if (OilPressureWarning)
                 {
                     OilPressureColor = (OilPressureColor.Equals(Brushes.Red)) ? Brushes.White : Brushes.Red;
                 } else if (OilPressureColor.Equals(Brushes.Red))
@@ -120,7 +102,7 @@ namespace N2k3Dash.ViewModel
                     OilPressureColor = Brushes.White;
                 }
 
-                if (_fuelPressureWarning)
+                if (FuelPressureWarning)
                 {
                     FuelPressureColor = (FuelPressureColor.Equals(Brushes.Red)) ? Brushes.White : Brushes.Red;
                 } else if (FuelPressureColor.Equals(Brushes.Red))
@@ -132,15 +114,7 @@ namespace N2k3Dash.ViewModel
             }
         }
 
-        public void LapTimeUpdated(object sender, LapTimeUpdatedEventArgs e)
-        {
-            LapTime = e.lapTime;
-        }
-        public override void Cleanup()
-        {
-            tach.GaugeUpdated -= RefreshDash;
-            tach = null;
-            base.Cleanup();
-        }
+
+
     }
 }
