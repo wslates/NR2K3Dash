@@ -9,22 +9,22 @@
     DataContext="{Binding Path=Analog, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
-
-    <Grid>
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Offset="0.92" Color="Black" />
-                <GradientStop Offset="0.197" Color="White" />
-            </RadialGradientBrush>
-        </Grid.Background>
-        <Label
+    <Viewbox>
+        <Grid>
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Offset="0.92" Color="Black" />
+                    <GradientStop Offset="0.197" Color="White" />
+                </RadialGradientBrush>
+            </Grid.Background>
+            <Label
                 x:Name="lAPTIME"
                 Margin="10,268,865,154"
                 Content="LAPTIME"
                 FontFamily="Russo One"
                 FontSize="20"
                 Foreground="Yellow" />
-        <Label
+            <Label
                 x:Name="lap_Time"
                 Margin="10,296,817,109"
                 Padding="0"
@@ -32,258 +32,259 @@
                 FontFamily="Russo One"
                 FontSize="36"
                 Foreground="White" />
-        <Image
-            x:Name="TachometerFace"
-            Width="338"
-            Height="332"
-            Margin="324,46,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="{Binding TachFacePath}" />
-        <Image
-            x:Name="TachometerNeedle"
-            Width="24"
-            Height="126"
-            Margin="482.75,96,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding TachNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label
-            x:Name="RPM"
-            Width="103"
-            Height="50"
-            Margin="531,186,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="{Binding RPM}"
-            FontFamily="Russo One"
-            FontSize="36"
-            Foreground="{Binding RPMColor}" />
+            <Image
+                x:Name="TachometerFace"
+                Width="338"
+                Height="332"
+                Margin="324,46,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="{Binding TachFacePath}" />
+            <Image
+                x:Name="TachometerNeedle"
+                Width="24"
+                Height="126"
+                Margin="482.75,96,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding TachNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                x:Name="RPM"
+                Width="103"
+                Height="50"
+                Margin="531,186,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="{Binding RPM}"
+                FontFamily="Russo One"
+                FontSize="36"
+                Foreground="{Binding RPMColor}" />
 
-        <Image
-            x:Name="WaterTemperatureFace"
-            Width="230"
-            Height="226"
-            Margin="100,45,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="{Binding WaterTemperatureFacePath}" />
-        <Image
-            x:Name="WaterTemperatureNeedle"
-            Width="18"
-            Height="86"
-            Margin="208,79,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding WaterTemperatureNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label
-            x:Name="WaterTemp"
-            Width="59"
-            Height="36"
-            Margin="188,215,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            Content="{Binding WaterTemp}"
-            FontFamily="Russo One"
-            FontSize="24"
-            Foreground="{Binding WaterTempColor}"
-            RenderTransformOrigin="0.797,0.556" />
+            <Image
+                x:Name="WaterTemperatureFace"
+                Width="230"
+                Height="226"
+                Margin="100,45,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="{Binding WaterTemperatureFacePath}" />
+            <Image
+                x:Name="WaterTemperatureNeedle"
+                Width="18"
+                Height="86"
+                Margin="208,79,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding WaterTemperatureNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                x:Name="WaterTemp"
+                Width="59"
+                Height="36"
+                Margin="188,215,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="{Binding WaterTemp}"
+                FontFamily="Russo One"
+                FontSize="24"
+                Foreground="{Binding WaterTempColor}"
+                RenderTransformOrigin="0.797,0.556" />
 
-        <Image
-            x:Name="OilTemperatureFace"
-            Width="230"
-            Height="226"
-            Margin="655,45,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="/img/Oil_temp_face.png" />
-        <Image
-            x:Name="OilTemperatureNeedle"
-            Width="18"
-            Height="86"
-            Margin="763,79,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding OilTemperatureNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label
-            x:Name="OilTemp"
-            Width="58"
-            Height="36"
-            Margin="739,215,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            Content="{Binding OilTemp}"
-            FontFamily="Russo One"
-            FontSize="24"
-            Foreground="Black" />
+            <Image
+                x:Name="OilTemperatureFace"
+                Width="230"
+                Height="226"
+                Margin="655,45,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="/img/Oil_temp_face.png" />
+            <Image
+                x:Name="OilTemperatureNeedle"
+                Width="18"
+                Height="86"
+                Margin="763,79,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding OilTemperatureNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                x:Name="OilTemp"
+                Width="58"
+                Height="36"
+                Margin="739,215,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="{Binding OilTemp}"
+                FontFamily="Russo One"
+                FontSize="24"
+                Foreground="Black" />
 
-        <Image
-            x:Name="FuelPressureFace"
-            Width="183"
-            Height="179"
-            Margin="618,268,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="{Binding FuelPressureFacePath}" />
-        <Image
-            x:Name="FuelPressureNeedle"
-            Width="13"
-            Height="67"
-            Margin="705,295,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding FuelPressureNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label
-            x:Name="FuelPressure"
-            Width="45"
-            Height="29"
-            Margin="687,404,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            Content="{Binding FuelPressure}"
-            FontFamily="Russo One"
-            FontSize="18"
-            Foreground="{Binding FuelPressureColor}" />
+            <Image
+                x:Name="FuelPressureFace"
+                Width="183"
+                Height="179"
+                Margin="618,268,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="{Binding FuelPressureFacePath}" />
+            <Image
+                x:Name="FuelPressureNeedle"
+                Width="13"
+                Height="67"
+                Margin="705,295,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding FuelPressureNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                x:Name="FuelPressure"
+                Width="45"
+                Height="29"
+                Margin="687,404,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="{Binding FuelPressure}"
+                FontFamily="Russo One"
+                FontSize="18"
+                Foreground="{Binding FuelPressureColor}" />
 
-        <Image
-            x:Name="OilPressureFace"
-            Width="182"
-            Height="179"
-            Margin="799,268,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="{Binding OilPressureFacePath}" />
-        <Image
-            x:Name="OilPressureNeedle"
-            Width="12"
-            Height="67"
-            Margin="886,295,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding OilPressureNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label
-            x:Name="OilPressure"
-            Width="46"
-            Height="29"
-            Margin="868,404,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            Content="{Binding OilPressure}"
-            FontFamily="Russo One"
-            FontSize="18"
-            Foreground="{Binding OilPressureColor}" />
+            <Image
+                x:Name="OilPressureFace"
+                Width="182"
+                Height="179"
+                Margin="799,268,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="{Binding OilPressureFacePath}" />
+            <Image
+                x:Name="OilPressureNeedle"
+                Width="12"
+                Height="67"
+                Margin="886,295,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding OilPressureNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                x:Name="OilPressure"
+                Width="46"
+                Height="29"
+                Margin="868,404,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="{Binding OilPressure}"
+                FontFamily="Russo One"
+                FontSize="18"
+                Foreground="{Binding OilPressureColor}" />
 
-        <Image
-            x:Name="VoltageFace"
-            Width="182"
-            Height="179"
-            Margin="183,266,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderOptions.EdgeMode="Aliased"
-            Source="/img/voltage_face.png" />
-        <Image
-            x:Name="VoltageNeedle"
-            Width="13"
-            Height="67"
-            Margin="270,293,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            RenderTransformOrigin="0.508,0.907"
-            Source="/img/needle.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="{Binding VoltageNeedleAngle}" />
-                    <TranslateTransform X="-1.607" Y="0.845" />
-                </TransformGroup>
-            </Image.RenderTransform>
+            <Image
+                x:Name="VoltageFace"
+                Width="182"
+                Height="179"
+                Margin="183,266,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderOptions.EdgeMode="Aliased"
+                Source="/img/voltage_face.png" />
+            <Image
+                x:Name="VoltageNeedle"
+                Width="13"
+                Height="67"
+                Margin="270,293,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                RenderTransformOrigin="0.508,0.907"
+                Source="/img/needle.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="{Binding VoltageNeedleAngle}" />
+                        <TranslateTransform X="-1.607" Y="0.845" />
+                    </TransformGroup>
+                </Image.RenderTransform>
 
-        </Image>
-        <Label
-            x:Name="Voltage"
-            Width="45"
-            Height="29"
-            Margin="250,404,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            Content="{Binding Voltage}"
-            FontFamily="Russo One"
-            FontSize="18"
-            Foreground="{Binding FuelPressureColor}" />
+            </Image>
+            <Label
+                x:Name="Voltage"
+                Width="45"
+                Height="29"
+                Margin="250,404,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="{Binding Voltage}"
+                FontFamily="Russo One"
+                FontSize="18"
+                Foreground="{Binding FuelPressureColor}" />
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Page>

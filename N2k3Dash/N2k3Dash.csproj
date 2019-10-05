@@ -112,11 +112,8 @@
     <Compile Include="ViewModel\DefaultViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\Hybrid-1.xaml.cs">
-      <DependentUpon>Hybrid-1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RCR.xaml.cs">
-      <DependentUpon>RCR.xaml</DependentUpon>
+    <Compile Include="Views\Hendrick.xaml.cs">
+      <DependentUpon>Hendrick.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Analog.xaml">
       <SubType>Designer</SubType>
@@ -142,13 +139,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Hybrid-1.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\Hendrick.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RCR.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
