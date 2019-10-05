@@ -43,6 +43,7 @@ namespace N2k3Dash.ViewModel
             _navigationService = new FrameNavigationService();
             _navigationService.Configure("Default", new Uri("../Views/Default.xaml", UriKind.Relative));
             _navigationService.Configure("Analog", new Uri("../Views/Analog.xaml", UriKind.Relative));
+            _navigationService.Configure("HMS", new Uri("../Views/Hendrick.xaml", UriKind.Relative));
         }
 
         /// <summary>
